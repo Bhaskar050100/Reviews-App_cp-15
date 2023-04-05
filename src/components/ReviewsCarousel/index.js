@@ -19,6 +19,16 @@ class ReviewsCarousel extends Component {
     }
   }
 
+  onClickLeftArrow = () => {
+    const {activeReviewIndex} = this.state
+
+    if (activeReviewIndex > 0) {
+      this.setState(prevState => ({
+        activeReviewIndex: prevState.activeReviewIndex - 1,
+      }))
+    }
+  }
+
   renderActiveReview = review => {
     const {imgUrl, username, companyName, description} = review
 
@@ -30,16 +40,6 @@ class ReviewsCarousel extends Component {
         <p className="description">{description}</p>
       </div>
     )
-  }
-
-  onClickLeftArrow = () => {
-    const {activeReviewIndex} = this.state
-
-    if (activeReviewIndex > 0) {
-      this.setState(prevState => ({
-        activeReviewIndex: prevState.activeReviewIndex - 1,
-      }))
-    }
   }
 
   render() {
